@@ -7,7 +7,7 @@ ENV NVIDIA_DRIVER_CAPABILITIES \
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV WORKSPACE /workspace
-ENV MAVEN_VERSION 3.9.2
+ENV MAVEN_VERSION 3.9.3
 
 # Install dependencies
 RUN apt-get -qq update
