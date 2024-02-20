@@ -22,4 +22,5 @@ docker run -it \
     --privileged \
     --net=host \
     --mount type=bind,source="$(pwd)"/missions,target=/workspace/missions \
+    --mount type=bind,source="$(pwd)"/maps,target=/workspace/maps \
     dragonfly-dashboard:latest --cyclone_network=wlan1

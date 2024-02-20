@@ -31,10 +31,12 @@ public class Drone {
         this.bridge = bridge;
         this.name = name;
 
-        relativeAltitudeObservable = Observable.combineLatest(position, localPosition,
-                (navSatFix, poseStamped) -> new LatLonRelativeAltitude(navSatFix.latitude(),
+        relativeAltitudeObservable = Observable.combineLatest(position, Observable.merge(
+                Observable.just(0d),
+                localPosition.map(poseStamped -> poseStamped.pose().position().z())),
+                (navSatFix, altitude) -> new LatLonRelativeAltitude(navSatFix.latitude(),
                         navSatFix.longitude(),
-                        poseStamped.pose().position().z()));
+                        altitude));
     }
 
     public void init() {

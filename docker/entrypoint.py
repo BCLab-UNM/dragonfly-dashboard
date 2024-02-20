@@ -27,9 +27,13 @@ def run(args):
         cyclone_dds_config = template('/workspace/templates/cyclonedds.xml.template', parameters)
         env['CYCLONEDDS_URI'] = f"file://{cyclone_dds_config.name}"
 
+    optionalMapParameter = ""
+    if args.map:
+        optionalMapParameter = f" --args=\"--m={args.map}\""
+
     processes.append(subprocess.Popen("/entrypoint.sh ros2 daemon start", env=env, shell=True))
     processes.append(subprocess.Popen("/entrypoint.sh ros2 launch rosbridge_server rosbridge_websocket_launch.xml", env=env, shell=True))
-    processes.append(subprocess.Popen("cd /workspace; /entrypoint.sh ./gradlew run", env=env, shell=True))
+    processes.append(subprocess.Popen(f"cd /workspace; /entrypoint.sh ./gradlew run{optionalMapParameter}", env=env, shell=True))
 
     for p in processes:
         p.wait()
@@ -42,6 +46,11 @@ def get_args():
 
     parser.add_argument(
         '--cyclone_network',
+        type=str,
+        default=None)
+
+    parser.add_argument(
+        '--map',
         type=str,
         default=None)
 
