@@ -48,7 +48,7 @@ public class CurtainCreator implements MissionStepCreator {
         altitudeField.setText("10");
         distanceThreshold.setText("1");
         stackHeight.setText("5");
-        co2Limit.setSelected(true);
+        co2Limit.setSelected(false);
         co2Threshold.setText("425");
         co2LimitMargin.setText("5");
 

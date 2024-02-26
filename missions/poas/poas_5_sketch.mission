@@ -1,0 +1,109 @@
+{
+  "steps" : [ {
+    "@type" : "Start"
+  }, {
+    "@type" : "Sleep",
+    "drones" : [ "dragonfly2" ],
+    "duration" : 60.0
+  }, {
+    "@type" : "Takeoff",
+    "drones" : [ "dragonfly1", "dragonfly2" ],
+    "altitude" : 20.0
+  }, {
+    "@type" : "Waypoint",
+    "drone" : "dragonfly1",
+    "waypoint" : "df1.start",
+    "runPump" : false,
+    "pumpNum" : 0,
+    "pumpThreshold" : 500.0
+  }, {
+    "@type" : "Waypoint",
+    "drone" : "dragonfly2",
+    "waypoint" : "df2.start",
+    "runPump" : false,
+    "pumpNum" : 0,
+    "pumpThreshold" : 500.0
+  }, {
+    "@type" : "Semaphore",
+    "drones" : [ "dragonfly1", "dragonfly2" ],
+    "id" : "ce308c28-72d6-45c2-8757-214d21c91c0a"
+  }, {
+    "@type" : "Sketch",
+    "leader" : "dragonfly1",
+    "partner" : "dragonfly2",
+    "offset" : 20.0,
+    "threshold" : 430.0
+  }, {
+    "@type" : "Waypoint",
+    "drone" : "dragonfly2",
+    "waypoint" : "df2.start",
+    "runPump" : false,
+    "pumpNum" : 0,
+    "pumpThreshold" : 500.0
+  }, {
+    "@type" : "Sleep",
+    "drones" : [ "dragonfly2" ],
+    "duration" : 60.0
+  }, {
+    "@type" : "RTL",
+    "drones" : [ "dragonfly1", "dragonfly2" ]
+  } ],
+  "waypoints" : {
+    "df2.start" : {
+      "waypoint" : {
+        "longitude" : -84.232666015625,
+        "latitude" : 10.192200660705566,
+        "altitude" : 22.0
+      },
+      "distanceThreshold" : 1.0
+    },
+    "plume" : {
+      "waypoint" : {
+        "longitude" : -84.23242950439453,
+        "latitude" : 10.196806907653809,
+        "altitude" : 10.0
+      },
+      "distanceThreshold" : 1.0
+    },
+    "df1.start" : {
+      "waypoint" : {
+        "longitude" : -84.2330093383789,
+        "latitude" : 10.192392349243164,
+        "altitude" : 20.0
+      },
+      "distanceThreshold" : 1.0
+    }
+  },
+  "boundaries" : {
+    "rtl boundary" : [ {
+      "longitude" : -84.226137031169,
+      "latitude" : 10.189810125315786,
+      "altitude" : 2660.9988864352927
+    }, {
+      "longitude" : -84.2254765211504,
+      "latitude" : 10.203420443148865,
+      "altitude" : 2397.059518889524
+    }, {
+      "longitude" : -84.25102087576036,
+      "latitude" : 10.202743912100448,
+      "altitude" : 2085.5083263972774
+    }, {
+      "longitude" : -84.2479084404483,
+      "latitude" : 10.187532472407506,
+      "altitude" : 2460.7546005314216
+    } ]
+  },
+  "plumes" : {
+    "plume" : {
+      "source" : {
+        "latitude" : 10.196806907653809,
+        "longitude" : -84.23242950439453,
+        "relative_altitude" : 10.0
+      },
+      "q" : 5000.0,
+      "k" : 2.0,
+      "u" : 1.0,
+      "wind_direction" : 90.0
+    }
+  }
+}

@@ -27,8 +27,9 @@ public class GotoCreator implements MissionStepCreator {
     @Override
     public void create(GridPane grid) {
         pumpNumber = new ComboBox<>(FXCollections.observableList(Arrays.asList(0, 1, 2, 3)));
+        pumpNumber.getSelectionModel().select(0);
         runPump = new CheckBox();
-        pumpThreshold = new TextField();
+        pumpThreshold = new TextField("500");
 
         GridUtil.builder(grid).increment()
                 .add("Drone:", droneSelection)

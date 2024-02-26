@@ -57,7 +57,7 @@ public class LawnmowerCreator implements MissionStepCreator {
         walkComboBox.getSelectionModel().select(LawnmowerDialogFactory.Walk.RANGE);
         waitTimeField.setText("0");
         distanceThreshold.setText("1");
-        co2Limit.setSelected(true);
+        co2Limit.setSelected(false);
         co2Threshold.setText("425");
         co2LimitMargin.setText("5");
 
